@@ -22,12 +22,8 @@
 {#await data.routeA}
 	<p class="loading">Loading data...</p>
 {:then routeData}
-	{#if routeData.response}
-		<p>{routeData.response}</p>
-		<p class="timestamp">Loaded at: {routeData.timestamp}</p>
-	{:else}
-		<p class="cancelled">Request was cancelled</p>
-	{/if}
+	<p>{routeData.response}</p>
+	<p class="timestamp">Loaded at: {routeData.timestamp}</p>
 {:catch error}
 	<p class="error">Error: {error.message}</p>
 {/await}
@@ -43,9 +39,5 @@
 	}
 	.error {
 		color: red;
-	}
-	.cancelled {
-		color: #f90;
-		font-style: italic;
 	}
 </style>
